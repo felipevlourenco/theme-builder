@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { generate } from 'shortid'
-import camelCase from 'lodash/camelCase'
+import { camelCase } from './utils/utils'
 import { useTheme } from './theme/useTheme'
 
 const Container = styled.div`
@@ -36,6 +36,8 @@ const CreateThemeContent = props => {
     txtColor: '#FFFFFF',
     btnBgColor: '#000000',
     btnTxtColor: '#FFFFFF',
+    btnSecodaryBgColor: '#000000',
+    btnSecodaryTxtColor: '#FFFFFF',
     linkColor: '#10BEEA',
     font: 'Roboto'
   }
@@ -53,8 +55,12 @@ const CreateThemeContent = props => {
         body: state.bgColor,
         text: state.txtColor,
         button: {
-          text: state.btnBgColor,
-          background: state.btnTxtColor
+          text: state.btnTxtColor,
+          background: state.btnBgColor
+        },
+        buttonSecondary: {
+          text: state.btnSecodaryTxtColor,
+          background: state.btnSecodaryBgColor
         },
         link: {
           text: state.linkColor,
@@ -147,6 +153,26 @@ const CreateThemeContent = props => {
             />
           </Row>
           <Row>
+            <label htmlFor="btn_sd_bg_color">Button Background Color:</label>{' '}
+            <input
+              type="color"
+              id="btn_sd_bg_color"
+              name="btnSecodaryBgColor"
+              value={state.btnSecodaryBgColor}
+              onChange={handleChange}
+            />
+          </Row>
+          <Row>
+            <label htmlFor="btn_sd_txt_color">Button Text Color:</label>{' '}
+            <input
+              type="color"
+              id="btn_sd_txt_color"
+              name="btnSecodaryTxtColor"
+              value={state.btnSecodaryTxtColor}
+              onChange={handleChange}
+            />
+          </Row>
+          <Row>
             <label htmlFor="link_color">Link Color:</label>{' '}
             <input
               type="color"
@@ -184,7 +210,7 @@ const CreateThemeContent = props => {
               working.
             </p>
             <button
-              className="btn"
+              className="btn-primary"
               style={{
                 backgroundColor: state.btnBgColor,
                 color: state.btnTxtColor,
@@ -192,6 +218,16 @@ const CreateThemeContent = props => {
               }}
             >
               I am a Button
+            </button>{' '}
+            <button
+              className="btn-secondary"
+              style={{
+                backgroundColor: state.btnSecodaryBgColor,
+                color: state.btnSecodaryTxtColor,
+                fontFamily: state.font
+              }}
+            >
+              I am a Button Secondary
             </button>{' '}
             {'  '}
             <a href="#" style={{ color: state.linkColor, fontFamily: state.font }}>

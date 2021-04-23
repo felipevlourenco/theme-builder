@@ -36,6 +36,7 @@ function App() {
   }
 
   const createTheme = newTheme => {
+    console.log(`- newTheme`, newTheme)
     console.log(newTheme)
     setShowDialog(false)
     setNewTheme(newTheme)
@@ -53,7 +54,10 @@ function App() {
               building a theme of your choice and apply it to test live. Why wait? Just give it a
               try.
             </p>
-            <button className="btn" onClick={manageDialog}>
+            <button className="btn-primary" onClick={manageDialog}>
+              Create a Theme
+            </button>
+            <button className="btn-secondary" onClick={manageDialog}>
               Create a Theme
             </button>
             <Dialog

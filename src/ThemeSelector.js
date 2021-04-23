@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import keys from 'lodash/keys'
-import camelCase from 'lodash/camelCase'
+import { camelCase, keys } from './utils/utils'
 import { useTheme } from './theme/useTheme'
 import { getFromLS } from './utils/storage'
 
@@ -78,6 +77,19 @@ const ThemeSelector = props => {
           style={{
             backgroundColor: `${data[camelCase(props.theme.name)].colors.button.background}`,
             color: `${data[camelCase(props.theme.name)].colors.button.text}`,
+            fontFamily: `${data[camelCase(props.theme.name)].font}`
+          }}
+        >
+          {props.theme.name}
+        </ThemedButton>
+        {/* Secondary */}
+        <ThemedButton
+          onClick={theme => themeSwitcher(props.theme)}
+          style={{
+            backgroundColor: `${
+              data[camelCase(props.theme.name)].colors.buttonSecondary.background
+            }`,
+            color: `${data[camelCase(props.theme.name)].colors.buttonSecondary.text}`,
             fontFamily: `${data[camelCase(props.theme.name)].font}`
           }}
         >

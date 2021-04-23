@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getFromLS, setToLS } from '../utils/storage'
-import values from 'lodash/values'
-import mapValues from 'lodash/mapValues'
+import { mapValues, values } from './../utils/utils'
 
 export const useTheme = () => {
   const themes = getFromLS('all-themes')

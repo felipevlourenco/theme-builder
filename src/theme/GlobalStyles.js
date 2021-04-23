@@ -26,8 +26,13 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.font};
   }
 
-  button.btn {
+  button.btn-primary {
     background-color: ${({ theme }) => theme.colors.button.background};
     color: ${({ theme }) => theme.colors.button.text};
+  }
+
+  button.btn-secondary {
+    background-color: ${({ theme }) => theme.colors.buttonSecondary.background};
+    color: ${({ theme }) => theme.colors.buttonSecondary.text};
   }
 `
